@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo
+    username: demo-user
+    password: demo-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+polygon:
+  websocket:
+    uri: wss://delayed.polygon.io/stocks
