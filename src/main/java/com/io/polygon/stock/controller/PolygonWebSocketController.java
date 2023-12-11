@@ -25,12 +25,22 @@ public class PolygonWebSocketController {
     }
 
     @GetMapping("/subscribe")
-    public void subscribe(@RequestParam String params) throws IOException, ExecutionException, InterruptedException {
+    public void subscribe(@RequestBody String params) throws IOException, ExecutionException, InterruptedException {
         polygonActionWebSocketService.sendMessage(new PolygonWebSocketMessage(PolygonWebSocketAction.subscribe, params));
     }
 
     @GetMapping("/unsubscribe")
-    public void unsubscribe(@RequestParam String params) throws IOException, ExecutionException, InterruptedException {
+    public void unsubscribe(@RequestBody String params) throws IOException, ExecutionException, InterruptedException {
         polygonActionWebSocketService.sendMessage(new PolygonWebSocketMessage(PolygonWebSocketAction.unsubscribe, params));
+    }
+
+    @GetMapping("/connect")
+    public void connectWebsocket() {
+        polygonActionWebSocketService.connectWebSocket();
+    }
+
+    @GetMapping("/disconnect")
+    public void disconnectWebsocket() throws Exception {
+        polygonActionWebSocketService.disconnectWebSocket();
     }
 }

@@ -24,7 +24,7 @@ public class CustomWebSocketConnectionManager extends WebSocketConnectionManager
     }
 
     @Override
-    protected void openConnection() {
+    public void openConnection() {
         if (this.logger.isInfoEnabled()) {
             this.logger.info("Connecting to WebSocket at " + this.getUri());
         }
@@ -33,12 +33,20 @@ public class CustomWebSocketConnectionManager extends WebSocketConnectionManager
         future.whenComplete((result, ex) -> {
             if (result != null) {
                 this.webSocketSession = result;
+                this.webSocketSession.setTextMessageSizeLimit(1024 * 1024);
                 this.logger.info("Successfully connected");
             } else if (ex != null) {
                 this.logger.error("Failed to connect", ex);
             }
 
         });
+    }
+
+    @Override
+    public void closeConnection() throws Exception {
+        if (this.webSocketSession != null) {
+            this.webSocketSession.close();
+        }
     }
 
     public WebSocketSession getCurrentSession() {

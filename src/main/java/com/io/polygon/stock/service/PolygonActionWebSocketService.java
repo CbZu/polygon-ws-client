@@ -9,4 +9,10 @@ public interface PolygonActionWebSocketService {
 
     void sendMessage(PolygonWebSocketMessage message) throws IOException, ExecutionException, InterruptedException;
 
+    void connectWebSocket();
+
+    void disconnectWebSocket() throws Exception;
+
+    void saveMessage(String message);
+
 }
