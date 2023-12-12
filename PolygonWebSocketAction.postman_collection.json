@@ -37,12 +37,90 @@
 			"response": []
 		},
 		{
-			"name": "subscribe",
+			"name": "disconnect",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"apiKey\": \"aCpmfugD4M_0x67HG34pK0Yt_z1d4_NG\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:8080/v1/polygon/websocket/subscribe?params=A.AM",
+					"raw": "localhost:8080/v1/polygon/websocket/disconnect",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"polygon",
+						"websocket",
+						"disconnect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "connect",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"apiKey\": \"aCpmfugD4M_0x67HG34pK0Yt_z1d4_NG\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/polygon/websocket/connect",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"polygon",
+						"websocket",
+						"connect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscribe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"params\": \"AM.*\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/polygon/websocket/subscribe",
 					"host": [
 						"localhost"
 					],
@@ -56,7 +134,8 @@
 					"query": [
 						{
 							"key": "params",
-							"value": "A.AM"
+							"value": "AM.*",
+							"disabled": true
 						}
 					]
 				}
@@ -65,11 +144,23 @@
 		},
 		{
 			"name": "unsubscribe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"params\": \"AM.TKR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:8080/v1/polygon/websocket/subscribe?params=A.AM",
+					"raw": "localhost:8080/v1/polygon/websocket/unsubscribe",
 					"host": [
 						"localhost"
 					],
@@ -78,12 +169,13 @@
 						"v1",
 						"polygon",
 						"websocket",
-						"subscribe"
+						"unsubscribe"
 					],
 					"query": [
 						{
-							"key": "params",
-							"value": "A.AM"
+							"key": "",
+							"value": "",
+							"disabled": true
 						}
 					]
 				}
